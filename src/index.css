@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 250 80% 58%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 250 30% 96%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 10% 46%;
+
+    --accent: 160 84% 39%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 250 80% 58%;
+
+    --radius: 0.75rem;
+
+    --glow: 250 80% 65%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 250 80% 58%;
+
+    --success: 160 84% 39%;
+    --success-foreground: 0 0% 100%;
+  }
+
+  .dark {
+    --background: 222 47% 6%;
+    --foreground: 0 0% 95%;
+    --card: 222 47% 10%;
+    --card-foreground: 0 0% 95%;
+    --popover: 222 47% 10%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 250 80% 62%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 222 30% 14%;
+    --secondary-foreground: 0 0% 95%;
+    --muted: 222 14% 18%;
+    --muted-foreground: 220 10% 60%;
+    --accent: 160 84% 39%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 95%;
+    --border: 222 14% 20%;
+    --input: 222 14% 20%;
+    --ring: 250 80% 62%;
+    --glow: 250 80% 55%;
+    --sidebar-background: 222 47% 6%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 250 80% 62%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 222 14% 18%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 222 14% 20%;
+    --sidebar-ring: 250 80% 62%;
+    --success: 160 84% 39%;
+    --success-foreground: 0 0% 100%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'DM Sans', sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+  }
+  .glass {
+    @apply bg-card/70 backdrop-blur-xl border border-border/50;
+  }
+  .glow-sm {
+    box-shadow: 0 0 20px -5px hsl(var(--primary) / 0.3);
+  }
+  .glow-lg {
+    box-shadow: 0 0 60px -10px hsl(var(--primary) / 0.25);
+  }
+}
+
+/* Google Maps watermark yashirish */
+.gm-style-cc,
+a[href*="maps.google.com/maps"],
+.gmnoprint a,
+.gmnoprint span,
+.gm-style-cc span,
+img[src*="google_white"] {
+  display: none !important;
+}
+.gm-style iframe + div {
+  border: none !important;
+}
+
+/* Leaflet map z-index fix */
+.leaflet-container {
+  z-index: 0 !important;
+}
+.leaflet-pane,
+.leaflet-tile,
+.leaflet-marker-icon,
+.leaflet-marker-shadow,
+.leaflet-tile-container,
+.leaflet-popup,
+.leaflet-tooltip {
+  position: absolute;
+}
+.leaflet-control {
+  position: relative;
+}
