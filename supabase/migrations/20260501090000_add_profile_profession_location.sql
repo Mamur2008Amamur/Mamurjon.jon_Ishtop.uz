@@ -1,0 +1,3 @@
+ALTER TABLE public.profiles
+ADD COLUMN IF NOT EXISTS profession TEXT,
+ADD COLUMN IF NOT EXISTS location TEXT;
